@@ -6,18 +6,18 @@ import com.telran.Homework_20240531.logger.Logger;
 import java.util.UUID;
 
 public class Host {
-    UUID id;
-    String email;
-    String displayName;
-    String username;
-    String image;
-    Logger logger = new ConsoleLogger();
+    private UUID id;
+    private String email;
+    private String displayName;
+    private String username;
+    private String image;
+    private Logger logger = new ConsoleLogger();
 
-    public Host(UUID id, String email, String displayName, String username, String image) {
+    public Host(String email, String displayName, String username, String image) {
         StringBuilder errors = new StringBuilder("\n\tErrors by creating host:\n");
         int startLengthErrors = errors.length();
 
-        this.id = id;
+        this.id = UUID.randomUUID();
 
         if (!email.contains("@")) {
             errors.append("\t\t\'email\' must have symbol \'@\'");

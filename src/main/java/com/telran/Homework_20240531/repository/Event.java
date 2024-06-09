@@ -8,17 +8,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Event {
-    UUID id;
-    String title;
-    LocalDateTime date;
-    String description;
-    String eventTypeCategory;
-    boolean isCancelled;
-    Host host;
-    Logger logger = new ConsoleLogger();
+    private UUID id;
+    private String title;
+    private LocalDateTime date;
+    private String description;
+    private String eventTypeCategory;
+    private boolean isCancelled;
+    private Host host;
+    private Logger logger = new ConsoleLogger();
 
-    public Event(UUID id, String title, LocalDateTime date, String description, String eventTypeCategory, boolean isCancelled, Host host) {
-        this.id = id;
+    public Event(String title, LocalDateTime date, String description, String eventTypeCategory, boolean isCancelled, Host host) {
+        id = UUID.randomUUID();
         this.title = title;
         this.date = date;
         this.description = description;

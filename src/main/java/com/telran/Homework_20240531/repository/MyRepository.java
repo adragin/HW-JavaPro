@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class MyRepository implements EventsRepository {
     private List<Event> events = new ArrayList<>();
-    Logger logger = new ConsoleLogger();
+    private Logger logger = new ConsoleLogger();
 
     @Override
     public void createEvent(Event event) {

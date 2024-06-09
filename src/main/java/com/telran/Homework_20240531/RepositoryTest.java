@@ -14,10 +14,10 @@ public class RepositoryTest {
         Logger logger = new ConsoleLogger();
 
 //        Host host = new Host(UUID.randomUUID(), "john.doe@example.com", "John Doe", "johndoe", "image.png");
-        Host host = new Host(UUID.randomUUID(), "john.doeexample.com", "", null, null);
+        Host host = new Host("john.doeexample.com", "", null, null);
 
-        Event event1 = new Event(UUID.randomUUID(), "Conference", LocalDateTime.now(), "Tech Conference", "Technology", false, host);
-        Event event2 = new Event(UUID.randomUUID(), "Meeting", LocalDateTime.now().plusDays(1), "Business Meeting", "Business", false, host);
+        Event event1 = new Event("Conference", LocalDateTime.now(), "Tech Conference", "Technology", false, host);
+        Event event2 = new Event("Meeting", LocalDateTime.now().plusDays(1), "Business Meeting", "Business", false, host);
 
 
         eventService.createEvent(event1);
