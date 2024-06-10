@@ -35,12 +35,29 @@ public class Repository {
     }
 
     public void removePersonById(int id) {
-        if (id > 0 || id <= index) {
-            storage[id] = null;
+        if (id >= 0 && id < index) {
+            for (int i = id; i < index - 1; i++) {
+                storage[i] = storage[i + 1];
+            }
+            storage[index - 1] = null;
+            index -= 1; // куда потом добавлять
         }
+    }
+
+    public void removePerson(Person person) {
+        int indexToRemove = -1;
+        for (int i = 0; i < index; i++) {
+            if (storage[i].equals(person)) {
+                indexToRemove = i;
+                break;
+            }
+        }
+        removePersonById(indexToRemove);
     }
 
     public int size() {
         return index;
     }
+
+
 }
