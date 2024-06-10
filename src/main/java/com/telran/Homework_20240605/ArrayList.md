@@ -1,6 +1,6 @@
 ## Создание `ArrayList`
 
-```
+```java
 import java.util.ArrayList;
 
 public class Main {
@@ -20,13 +20,13 @@ list.add("element");
 
 - **`void add(int index, E element)`**  - вставляет элемент `element` в указанный индекс `index`.
 
-```
+```java
 list.add(1, "newElement");
 ```
 
 - **`boolean addAll(Collection<? extends E> c)`** - добавляет все элементы из коллекции `c` в конец списка.
 
-```
+```java
 ArrayList<String> otherList = new ArrayList<>();
 otherList.add("item1");
 otherList.add("item2");
@@ -36,70 +36,70 @@ list.addAll(otherList);
 
 - **`E get(int index)`**  - возвращает элемент, находящийся по указанному индексу `index`.
 
-```
+```java
 String element = list.get(0);
 System.out.println("First element: " + element);
 ```
   
 - **`E set(int index, E element)`** - заменяет элемент в указанном индексе `index` на `element`
 
-```
+```java
 String element = list.get(0);
 System.out.println("First element: " + element);
 ```
 
 - **`E remove(int index)`** - удаляет элемент по указанному индексу `index` и возвращает его.
 
-```
+```java
 String removedElement = list.remove(0);
 System.out.println("Removed element: " + removedElement);
 ```
 
 - **`boolean remove(Object o)`** - удаляет первое вхождение объекта `o` из списка, если он присутствует.
 
-```
+```java
 boolean isRemoved = list.remove("element");
 System.out.println("Element removed: " + isRemoved);
 ```
 
 - **`int size()`** - возвращает количество элементов в списке.
 
-```
+```java
 int size = list.size();
 System.out.println("List size: " + size);
 ```
 
 - **`void clear()`**  - удаляет все элементы из списка.
 
-```
+```java
 list.clear();
 System.out.println("List cleared. Size: " + list.size());
 ```
 
 - **`boolean isEmpty()`** - проверяет, пуст ли список.
 
-```
+```java
 boolean empty = list.isEmpty();
 System.out.println("Is list empty? " + empty);
 ```
 
 - **`boolean contains(Object o)`** - проверяет, содержит ли список указанный элемент `o`.
 
-```
+```java
 boolean contains = list.contains("element");
 System.out.println("Contains 'element'? " + contains);
 ```
 
 - **`int indexOf(Object o)`** - возвращает индекс первого вхождения элемента `o` или `-1`, если элемент не найден.
 
-```
+```java
 int index = list.indexOf("element");
 System.out.println("Index of 'element': " + index);
 ```
 
 - **`int lastIndexOf(Object o)`** - возвращает индекс последнего вхождения элемента `o` или `-1`, если элемент не найден.
 
-```
+```java
 list.add("element");
 int lastIndex = list.lastIndexOf("element");
 System.out.println("Last index of 'element': " + lastIndex);
@@ -107,21 +107,21 @@ System.out.println("Last index of 'element': " + lastIndex);
 
 - **`Object[] toArray()`** - возвращает массив, содержащий все элементы списка.
 
-```
+```java
 Object[] array = list.toArray();
 System.out.println("Array: " + Arrays.toString(array));
 ```
 
 - **`<T> T[] toArray(T[] a)`** - возвращает массив, содержащий все элементы списка в указанном массиве `a`.
 
-```
+```java
 String[] array = list.toArray(new String[0]);
 System.out.println("Array: " + Arrays.toString(array));
 ```
 
 ### Примеры использования всех методов
 
-```
+```java
 import java.util.ArrayList;
 import java.util.Arrays;
 
