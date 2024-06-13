@@ -1,0 +1,91 @@
+@startuml ConatctsSystem
+title "Система управления контактами"
+'https://plantuml.com/class-diagram
+
+class  Contact{
+    -id: int;
+    -name:String
+    -phoneNumber:String
+    -email:String
+    ----
+    +setName(String name): void
+    +setPhoneNumber(String phoneNumber): void
+    +setEmail(String email): void
+    ..
+    +getName(String name): void
+    +getPhoneNumber(String phoneNumber): void
+    +getEmail(String email): void
+    ..
+    toString() : String
+}
+
+class ContactBuilder{
+    -Contact contact
+    -hasNameFlag: boolean
+    +setName(String name) : this
+    +setEmail(String email) : this
+    +setPhoneNumber(String email) : this
+    +build(): Contact
+}
+
+ContactBuilder --> Contact : <<create>>
+
+class Repository{
+    -List<Contact>
+    +getContacts(): List<Contact>
+}
+
+Contact "many" --o "to one" Repository
+
+interface ContactService{
+    +addContact(Contact contact): void
+    ..
+    +getByName(String name): List<Contact>
+    +getById(int id): Contact
+    +getAll(): List<Contact>
+    ..
+    +updateById(int id, Contact newContact): void
+    ..
+    +deleteById(int id):  void
+    +deleteByName(String name): void
+}
+
+class ContactServiceImpl implements ContactService{
+    -repository : Repository
+    -id : int
+    --
+    +addContact(Contact contact): void
+    ..
+    +getByName(String name): List<Contact>
+    +getById(int id): Contact
+    +getAll(): List<Contact>
+    ..
+    +updateById(int id, Contact newContact): void
+    ..
+    +deleteById(int id):  void
+    +deleteByName(String name): void
+}
+
+Repository --o ContactServiceImpl
+
+class App{
+    {static}ContactService : ContactServiceImpl
+    {static}scanner : Scanner
+
+    +{static}start()
+    -{static}createContact()
+    -{static}getByName()
+    -{static}getById()
+    -{static}getAll()
+    -{static}updateContact()
+    -{static}deleteById()
+    -{static}deleteByName()
+}
+
+App o-- ContactServiceImpl
+
+Program : main()
+
+Program o-- App
+
+@enduml
