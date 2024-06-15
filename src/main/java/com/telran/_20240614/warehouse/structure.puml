@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Storage {
+    -strorage: ArrayList<Product>
+    -listIdProduct : HashSet<UUID>
+    +addProduct(Product product) : void
+    +removeProduct(int productId) : void
+    +findProduct(int productId) : Product
+}
+
+Storage ..|> WarehousePrintable
+
+class Printer{
+    +print (String output) : void
+}
+Storage --|> Printer
+
+class Product{
+    -id: UUID
+    -name: String
+    -amount: int
+    -place: String
+}
+
+Storage "to one" *-- "from many" Product
+
+interface WarehousePrintable{
+    printProductById(int id) : void
+    printAll() : void
+    printProductByName() : void
+}
+
+
+@enduml
