@@ -28,3 +28,6 @@
    - Интерфейс `WarehousePrintable`: содержит методы для вывода информации о складе.
    - Класс `Printable`: содержит метод `print(String output)`, который будет использоваться для вывода информации.
 
+#### Предварительная структура :
+
+![](//www.plantuml.com/plantuml/png/TP1FQm8n4CNl-HJ3Ncehg_T5H4iFNIYb8DBpT1Cra3zBCX6a-jqRDvlOqdOloxpvlScyMNb2Hq4hTdSWwdqpd_SApLMPTLRFEuNUrrpYtg5cR2XXGzRXNi0dW_ZLdjnGDx1s3aylqjFYpLaUEbecGaMfvQC63JoZFsm4BRRRzYaXK-IvFybSd_xtqN2qaYVE2MsF8gFI5ApbFy6TDFnVR6om2sCvp6nsNi8xEd6mmSS7eWS_bCYP1q6u57dQNokOR2Z-zs03zU6svwNChElpCZlBeFJqU3l96xXU8LK6jMWWJKqAQXiCDH179A5Ns1Nc-_uLMR16LF1Grr3jdDMWqPogafKDQ-oY_O-OQPqXriW_dbe-74wMmzwOjLAJelvsliOSj_w5hOJXGQil)
