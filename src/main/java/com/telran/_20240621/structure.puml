@@ -1,0 +1,66 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface IView{
+    read()
+    set()
+}
+
+interface IRepository{
+    readContactById(int id) : Contact
+    readContactByName(String name) : Contact
+    readAll(): List<Contact>
+    writeContact(Contact contact): void
+    deleteContact(Contact contact)): void
+}
+
+class ConsoleView implements IView{
+}
+
+class FileRepository implements IRepository{
+}
+
+class Contact{
+    id : int
+    name : String
+    surname : String
+    phoneNumber : String
+    email : String
+}
+
+class ContactBuilder{
+    instance UserContact;
+
+    setName(String name) : void
+    setSurname(String surname) : void
+    setPhoneNumber(String phoneNumber) : void
+    setEmail(String email) : void
+}
+
+Contact -- ContactBuilder
+Contact --* FileRepository
+
+class ContactService{
+    ConsoleView : IView
+    FileRepository : IView
+    --
+    createContact(): Contact
+    setToConsole(...Contact): void
+
+    ..
+    writeContactToFile(): void
+    readContactFromFile(): Contact
+    readAllFromFile(): List<Contact>
+    updateContact(): void
+    deleteContact(): void
+    ..
+    selectContactByName(String name): List<Contact>
+    selectContactById(int id): Contact
+}
+
+ContactService o-- FileRepository
+ContactService o-- ConsoleView
+
+
+
+@enduml
