@@ -1,0 +1,81 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Shape{
+    abstract getArea(): double
+}
+
+class Circle{
+    -radius: double
+    +getArea(): double
+}
+
+class Square{
+    -side: double
+    +getArea(): double
+}
+
+class Triangle{
+    -sideA: double
+    -sideB: double
+    -sideC: double
+    +isRight(): boolean
+    +isDegenerate(): boolean
+    +getArea(): void
+}
+
+class Rectangle extends Shape{
+    -width : double
+    -height: double
+    +getArea(): double
+}
+
+Circle --|> Shape
+Square --|> Shape
+Triangle --|> Shape
+
+interface View{
+    get(): String
+    print(String msg): void
+}
+
+class ConsoleView{
+    scan : Scanner
+    +get() : String
+    +print(String) : void
+}
+
+ConsoleView ..|> View
+
+class Model{
+    List<Shape> : ArrayList
+    +append(Shape) : void
+    +printLast() : String
+    +toString(): String
+}
+
+class Presenter {
+    -m : Model
+    -v : View
+    +append() : void
+    +printLast() : void
+    +printAll() : void
+}
+
+View --o Presenter
+Model --o Presenter
+
+Shape "0..*" --o "one" Model
+
+class App{
+    view : ConsoleView
+    model : Model
+    pres : Presenter
+    +run() : void
+}
+
+
+ConsoleView --o App
+Model --o App
+
+@enduml
